@@ -2,15 +2,18 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: Arial;
+}
+
 .container {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr) 2fr;
   grid-template-areas: 
-    "grid1 grid1 grid2 grid3 grid3"
-    "grid4 grid5 grid6 grid3 grid3"
+    "grid1 grid1 grid6 grid3 grid3"
+    "grid4 grid5 grid2 grid3 grid3"
     "grid7 grid8 grid9 grid3 grid3";
-
   height: 100vh;
   margin: 0px;
 }
@@ -19,114 +22,192 @@ h1 {
   color: white; 
   font-family: Arial;
   font-size: 35px;
-  left: 30px;
+  padding-bottom: 15px;
+}
+
+p {
+  color: white;
+}
+.summary {
+  line-height: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.box-border {
+  border: 2px solid white;
+  display: inline-block;
+  font-size: 14px;
+  padding: 12px;
+}
+
+.right {
+  opacity: .8;
   position: absolute;
-  top: 30px; 
+  right: 3px;
+  top: 48%;
 }
 
-.thor {
-  filter: saturate(50%);
-  height: auto;
-  object-fit: cover;
-  overflow: hidden;
-  width: 100%;
+.left {
+  left: 3px;
+  opacity: .8; 
+  position: absolute;
+  top: 48%;
 }
 
-.icon {
+.img {
+  height: 70px;
   justify-content: center;
-  width: 30%;
+  padding: 10px;
+}
+
+.nav-buttons {
+  color: white;
+  font-size: 28px;
+  opacity: .8;
+  padding: 8px;
+}
+
+.grid {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .grid1 {
-  background-color: #2E0406;
+  background-color: #677341;
+  display: flex;
+  flex-direction: column;
   grid-area: grid1;
+  justify-content: center;
+  padding: 25px;
 }
 
 .grid2 {
-  align-items: center;
-  background-color: #353535;
-  display: flex;
+  background-color: #677341;
   grid-area: grid2;
-  justify-content: center;
 }
 
 .grid3 {
   align-items: stretch;
-  background-color: white;
+  background-image: url(assets/Onyx.jpg);
+  background-position: center;
+  background-size: cover;
   display: flex;
   grid-area: grid3;
+  justify-content: flex-end;
+  position: relative;
 }
 
 .grid4 {
-  align-items: center;
-  background-color: #737373;
-  display: flex;
+  background-color: #6B5442;
   grid-area: grid4;
-  justify-content: center;
 }
 .grid5 {
-  align-items: center;
-  background-color: #9E0008;
-  display: flex;
+  background-color: #966843;
   grid-area: grid5;
-  justify-content: center;
 }
 .grid6 {
-  align-items: center;
-  background-color: #2E0406;
-  display: flex;
+  background-color: #6B5442;
   grid-area: grid6;
-  justify-content: center;
 }
 .grid7 {
-  align-items: center;
-  background-color: #353535;
-  display: flex;
+  background-color: #77725F;
   grid-area: grid7;
-  justify-content: center;
 }
 
 .grid8{
-  align-items: center;
-  background-color: #2E0406;
-  display: flex;
+  background-color: #6B5442;
   grid-area: grid8;
-  justify-content: center;
 }
 
 .grid9 {
-  align-items: center;
-  background-color: #9E0008;
-  display: flex;
+  background-color: #966843;
   grid-area: grid9;
-  justify-content: center;
-
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (min-width: 640px) and (max-width: 900px){
   .container {
-    grid-template-rows: repeat(4, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 
-     "grid1 grid1 grid3 grid3" 
-     "grid2 grid2 grid3 grid3" 
-     "grid4 grid5 grid3 grid3" 
-     "grid6 grid7 grid8 grid9";
+    grid-template-rows: repeat(4,  1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:  
+      "grid1 grid1 grid3" 
+      "grid5 grid4 grid3" 
+      "grid2 grid9 grid3" 
+      "grid8 grid7 grid6";
+  }
+
+  .img {
+    height: 60px;
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (min-width: 440px) and (max-width: 639px) {
   .container {
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(5, 1fr);
-    grid-template-columns: 1fr 1fr;
     grid-template-areas: 
-     "grid1 grid3" 
-     "grid2 grid3" 
-     "grid4 grid5"
-     "grid7 grid6"
-     "grid8 grid9";
-    height: 167vh;
+      "grid2 grid3 grid3" 
+      "grid4 grid3 grid3" 
+      "grid5 grid3 grid3" 
+      "grid7 grid1 grid1" 
+      "grid6 grid9 grid8";
+  }
+  h1 {
+    font-size: 30px;
+    padding-bottom: 5px;
   }
 
+  .grid1 {
+    padding: 15px;
+  }
+
+  .grid3 {
+    background-image: url(assets/Onyx-copy.jpg);
+  }
+
+  .img {
+    height: 55px;
+  }
 }
+
+@media screen and (max-width: 440px) {
+  .container {
+    grid-template-rows: repeat(11, 160px);
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "grid1" 
+      "grid3" 
+      "grid3" 
+      "grid3" 
+      "grid6" 
+      "grid2" 
+      "grid5"
+      "grid7" 
+      "grid4"
+      "grid9" 
+      "grid8";
+     width: 100%;
+  }
+
+  h1 {
+    padding-bottom: 0;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .summary {
+    font-size: 14px;
+    padding-right: 12px;
+  }
+
+  .grid1 {
+    padding: 15px;
+    align-items: center;
+  }
+}
+
 
